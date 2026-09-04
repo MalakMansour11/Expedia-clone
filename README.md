@@ -1,89 +1,115 @@
-<h1>Chalo Ghume</h1>
+# Chalo Ghume - Expedia Clone
 
-<p>This project is a clone of the Expedia website, created by Team of 5 starting with Kumkum (Team Lead), Ashish, Amit, Sagar Balsaraf, and Sarim . The purpose of this project is to showcase our skills and knowledge in HTML, CSS, JavaScript, React, Redux, and Json-Server.<p>
+A React and Redux web application that replicates core Expedia functionality: searching, filtering, and booking hotels and flights, with a cart and an admin panel. Built as the Prelude Project for SE 3290 (Software Project Management), based on the open-source project by Kumkum Dutta and team.
 
+## Tech Stack
 
-<h2>Tech Stack</h2>
+- React 18
+- Redux, Redux Thunk, and React-Redux
+- Firebase Authentication (phone/OTP)
+- json-server (mock REST API for hotel, flight, and admin data)
+- Chakra UI and styled-components
+- Axios and React Router
 
-- HTML
-- CSS
-- JavaScript
-- React
-- Redux
-- Json-Server
-- firebase
+## Features
 
+### User Experience
 
-<h2>Dependency</h2>
+- Landing page
+- Login and signup via Firebase phone OTP
+- Flight and hotel detail browsing
+- Flight, hotel, and holiday package search
+- Search result sorting and filtering
+- Flight and hotel booking
+- Cart section
 
-- axios
-- redux
-- react-redux
-- redux thunk
-- chakraUI
-- firebase
-- font-awesome
-- json-server
-- react-router-dom
-- better-react-carousel
+### Admin Panel
 
-<h2>Features</h2>
+- Manage hotel and flight listings
+- View booking requests and user details
+- Oversee cart and transaction workflows
 
-- Landing Page
-- Login and signup via firebase (OTP).
-- View details of flights, hotels.
-- Search for flights, hotels, and holiday packages
-- Sorting & Filtering and Seraching
-- Book flights, hotels.
-- Cart Section
-- Admin Panel
+## Getting Started
 
-<h2>Installation</h2>
+### Prerequisites
 
-To run this project locally, follow the steps below:
+- [Node.js](https://nodejs.org/) (LTS) and npm
+- A free [Firebase project](https://console.firebase.google.com/) with the Phone sign-in provider enabled
 
-. Clone the repository by running the following command:
-git clone https://github.com/kumkumdutta/interesting-stretch-8935.git
+### 1. Clone and Install
 
-. Navigate to the project directory:
-cd hesitant-river-6235
+```bash
+git clone https://github.com/YOUR-USERNAME/Expedia-clone.git
+cd Expedia-clone
+npm install --legacy-peer-deps
+```
 
-. Install the dependencies:
-npm install
+`--legacy-peer-deps` is required because of a peer-dependency mismatch between React 18 and some testing-library packages.
 
-. Start the server:
+### 2. Configure Firebase
+
+1. Create a project in the [Firebase Console](https://console.firebase.google.com/).
+2. Enable **Authentication > Sign-in method > Phone**.
+3. Register a web app and copy the generated `firebaseConfig` object.
+4. Paste it into `src/01_firebase/config_firebase.js`, replacing the placeholder values.
+
+### 3. Run Locally
+
+Run the React app:
+
+```bash
 npm start
+```
 
-. Start JSON- Server:
+In a second terminal, run the mock API:
+
+```bash
 npm run server
+```
 
-. Open the website in your browser:
-http://localhost:3000/
+The React app runs at `http://localhost:3000`, and json-server runs at `http://localhost:8080`. Both processes need to be running for search, listings, and the admin panel to work.
 
+### 4. Build for Production
 
-<h2>Deployment</h2>
+```bash
+npm run build
+```
 
-This project has been deployed using Vercel at the following URL:
+This outputs an optimized production bundle to `build/`.
 
-https://interesting-stretch-8935-liart.vercel.app/
+## Deployment
 
+This project can be deployed to any static host that supports Create React App builds.
 
-This is Login and Signup pages:-
-![login](https://user-images.githubusercontent.com/112754519/231046318-135d34cb-0ae7-46c3-851c-6889441c62de.PNG)
+### Vercel (Recommended)
 
+1. Push your fork to GitHub.
+2. In Vercel, select **Add New > Project** and import the repository.
+3. Vercel auto-detects the Create React App build settings.
+4. Deploy, then verify authentication, search, booking, and the admin panel on the live URL.
 
+## Project Structure
 
-This is the Stays Page:-
-![stays](https://user-images.githubusercontent.com/112754519/231046349-d9885d9f-b42d-4d9f-bfc2-0cac0f9a10df.PNG)
+```text
+src/
+├── 01_firebase/       # Firebase config and initialization
+├── Components/        # Shared UI components (Navbar, Footer, etc.)
+├── Pages/
+│   ├── Admin/          # Admin dashboard, product/hotel/flight management
+│   ├── Flights/        # Flight search, listing, and cards
+│   ├── Stay/           # Hotel search, filters, and listing
+│   └── ThingsTodo/     # Destination browsing
+├── Redux/              # Store, reducers, and actions (auth, hotels, flights)
+└── App.js
 
+db.json                # Mock data served by json-server
+```
 
+## Contributing
 
-This is the Flight Page:-
-![Flight](https://user-images.githubusercontent.com/112754519/231046392-fea5d486-9b26-462c-af9a-5727853e6669.PNG)
+See `CONTRIBUTING.md` for guidelines on submitting issues and pull requests.
 
+## Credits
 
-
-This is the Admin Page:-
-![Admin](https://user-images.githubusercontent.com/112754519/231046415-c8c2f14c-f586-4da0-884a-992bc18b0e12.PNG)
-
+Originally built by Kumkum Dutta (Team Lead), Ashish, Amit, Sagar Balsaraf, and Sarim. Adapted for SE 3290 coursework. Modified by Ben Boldog, Gavin Herum, and Malak Mansour.
 
